@@ -30,7 +30,7 @@ run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/su -c 'yum install -y libX11-devel'
+su -c 'yum install -y libX11-devel'
 
 
 # make the build number clobber
