@@ -16,7 +16,7 @@ source:
       - patches/module_scope.patch  # https://github.com/tcltk/tk/commit/c498076fc9cb8a1ae2db1bc90edfbc1a8a45fc57.patch
 
 build:
-  number: 0
+  number: 1 
   detect_binary_files_with_prefix: true
   run_exports:
     # pin to major.minor because library names have that info in them
