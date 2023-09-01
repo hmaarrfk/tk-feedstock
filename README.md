@@ -3,11 +3,13 @@ About tk
 
 Home: http://www.tcl.tk/
 
-Package license: Tcl/Tk
+Package license: TCL
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tk-feedstock/blob/master/LICENSE.txt)
 
 Summary: A dynamic programming language with GUI support.  Bundles Tcl and Tk.
+
+Development: https://github.com/tcltk/tk
 
 Current build status
 ====================
@@ -52,6 +54,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2081&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tk-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2081&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tk-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -163,9 +172,9 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@isuruf](https://github.com/isuruf/)
 * [@jakirkham](https://github.com/jakirkham/)
-* [@jjhelmus](https://github.com/jjhelmus/)
-* [@mingwandroid](https://github.com/mingwandroid/)
+* [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@msarahan](https://github.com/msarahan/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@pelson](https://github.com/pelson/)

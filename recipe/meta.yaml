@@ -1,4 +1,4 @@
-{% set version = "8.6.11" %}
+{% set version = "8.6.12" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -8,10 +8,12 @@ package:
 source:
   - url: https://downloads.sourceforge.net/tcl/tcl{{ version }}-src.tar.gz
     folder: tcl{{ version }}
-    sha256: 8c0486668586672c5693d7d95817cb05a18c5ecca2f40e2836b9578064088258
+    sha256: 26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6
   - url: https://downloads.sourceforge.net/tcl/tk{{ version }}-src.tar.gz
     folder: tk{{ version }}
-    sha256: 5228a8187a7f70fa0791ef0f975270f068ba9557f57456f51eb02d9d4ea31282
+    sha256: 12395c1f3fcb6bed2938689f797ea3cdf41ed5cb6c4766eec8ac949560310630
+    patches:
+      - patches/bitmap_osx.patch  # [osx]
 
 build:
   number: 1005
@@ -91,16 +93,17 @@ test:
 
 about:
   home: http://www.tcl.tk/
-  license: Tcl/Tk
+  license: TCL
   license_family: BSD
   license_file: tcl{{ version }}/license.terms
   summary: A dynamic programming language with GUI support.  Bundles Tcl and Tk.
+  dev_url: https://github.com/tcltk/tk
 
 extra:
   recipe-maintainers:
     - jakirkham
-    - jjhelmus
     - msarahan
     - pelson
     - ocefpaf
-    - mingwandroid
+    - isuruf
+    - matthiasdiener
