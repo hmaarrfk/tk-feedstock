@@ -43,7 +43,6 @@ requirements:
     - zlib  # [unix]
     - freetype  # [tk_variant == 'xft']
     - fontconfig  # [tk_variant == 'xft']
-    - tk_variant
 test:
 
   files:
