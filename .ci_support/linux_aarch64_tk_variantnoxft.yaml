@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '12'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -14,14 +14,15 @@ channel_targets:
 - conda-forge main
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
-pin_run_as_build:
-  fontconfig:
-    max_pin: x
-  freetype:
-    max_pin: x
-  zlib:
-    max_pin: x.x
+fontconfig:
+- '2'
+freetype:
+- '2'
 target_platform:
 - linux-aarch64
+tk:
+- '8.6'
+tk_variant:
+- noxft
 zlib:
 - '1.2'

@@ -1,19 +1,24 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '10.9'
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '15'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+fontconfig:
+- '2'
+freetype:
+- '2'
 macos_machine:
-- arm64-apple-darwin20.0.0
-pin_run_as_build:
-  zlib:
-    max_pin: x.x
+- x86_64-apple-darwin13.4.0
 target_platform:
-- osx-arm64
+- osx-64
+tk:
+- '8.6'
+tk_variant:
+- noxft
 zlib:
 - '1.2'
