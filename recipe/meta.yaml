@@ -1,5 +1,6 @@
 {% set version = "8.6.12" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
+{% set build = 1005 %}
 
 package:
   name: tk
@@ -15,8 +16,15 @@ source:
     patches:
       - patches/bitmap_osx.patch  # [osx]
 
+
+{% if tk_variant == 'noxft' %}
+# prioritize noxft variant via build number
+{% set build = build + 1000 %}
+{% endif %}
+
 build:
-  number: 1005
+  number: {{ build }}
+  string: "{{ tk_variant }}_h{{ PKG_HASH }}_{{ build }}"
   detect_binary_files_with_prefix: true
   run_exports:
     # pin to major.minor because library names have that info in them
@@ -29,13 +37,16 @@ requirements:
     - {{ cdt('libx11-devel') }}          # [linux]
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau') }}                # [linux]
+{% if tk_variant == 'xft' %}
     - {{ cdt('libxft') }}                # [linux]
+{% endif %}
     - make                               # [linux]
   host:
     - zlib  # [unix]
+{% if tk_variant == 'xft' %}
     - freetype
     - fontconfig
-
+{% endif %}
 test:
 
   files:
