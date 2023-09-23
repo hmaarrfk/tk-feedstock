@@ -31,6 +31,7 @@ set INCLUDE=%INCLUDE%;c:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Includ
 :: Tk build
 
 pushd tk%PKG_VERSION%\win
+nmake nmakehlp.exe
 nmake -f makefile.vc INSTALLDIR=%LIBRARY_PREFIX% MACHINE=%MACHINE% TCLDIR=..\..\tcl%PKG_VERSION% release
 nmake -f makefile.vc INSTALLDIR=%LIBRARY_PREFIX% MACHINE=%MACHINE% TCLDIR=..\..\tcl%PKG_VERSION% install
 if %ERRORLEVEL% GTR 0 exit 1
