@@ -12,8 +12,6 @@ source:
   - url: https://downloads.sourceforge.net/tcl/tk{{ version }}-src.tar.gz
     folder: tk{{ version }}
     sha256: 2e65fa069a23365440a3c56c556b8673b5e32a283800d8d9b257e3f584ce0675
-    patches:
-      #- patches/bitmap_osx.patch  # [osx]
 
 build:
   number: 0
