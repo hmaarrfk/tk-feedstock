@@ -68,7 +68,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2081&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tk-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_tk_variantnoxft" alt="variant">
-
                 </a>
               </td>
             </tr><tr>
