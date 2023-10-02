@@ -1,4 +1,4 @@
-{% set version = "8.6.12" %}
+{% set version = "8.6.13" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build = 1005 %}
 
@@ -9,12 +9,10 @@ package:
 source:
   - url: https://downloads.sourceforge.net/tcl/tcl{{ version }}-src.tar.gz
     folder: tcl{{ version }}
-    sha256: 26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6
+    sha256: 43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066
   - url: https://downloads.sourceforge.net/tcl/tk{{ version }}-src.tar.gz
     folder: tk{{ version }}
-    sha256: 12395c1f3fcb6bed2938689f797ea3cdf41ed5cb6c4766eec8ac949560310630
-    patches:
-      - patches/bitmap_osx.patch  # [osx]
+    sha256: 2e65fa069a23365440a3c56c556b8673b5e32a283800d8d9b257e3f584ce0675
 
 
 {% if tk_variant == 'noxft' %}
@@ -116,3 +114,4 @@ extra:
     - ocefpaf
     - isuruf
     - matthiasdiener
+    - xhochy
