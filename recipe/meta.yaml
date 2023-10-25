@@ -43,6 +43,8 @@ requirements:
     - freetype  # [tk_variant == 'xft']
     - fontconfig  # [tk_variant == 'xft']
     - xorg-libxft  # [tk_variant == 'xft']
+  run:
+    - xorg-libxft  # [tk_variant == 'xft']
 test:
 
   files:
