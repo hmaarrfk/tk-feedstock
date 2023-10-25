@@ -4,13 +4,9 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-fontconfig:
-- '2'
-freetype:
-- '2'
 target_platform:
 - win-64
 tk:
 - '8.6'
 tk_variant:
-- xft
+- noxft
