@@ -37,12 +37,12 @@ requirements:
     - {{ cdt('libx11-devel') }}          # [linux]
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau') }}                # [linux]
-    - {{ cdt('libxft') }}                # [linux and tk_variant == 'xft']
     - make                               # [linux]
   host:
     - zlib  # [unix]
     - freetype  # [tk_variant == 'xft']
     - fontconfig  # [tk_variant == 'xft']
+    - xorg-libxft  # [tk_variant == 'xft']
 test:
 
   files:
