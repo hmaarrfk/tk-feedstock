@@ -1,5 +1,5 @@
 tk_variant:
-  - xft  # [unix]
+  - xft  # [linux]
   - noxft
 # Required for UniformTypeIdentifiers
 MACOSX_SDK_VERSION:        # [osx and x86_64]

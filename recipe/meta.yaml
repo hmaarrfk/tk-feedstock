@@ -38,11 +38,11 @@ requirements:
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau') }}                # [linux]
     - make                               # [linux]
+    - {{ cdt('freetype') }}              # [linux and tk_variant == 'xft']
+    - {{ cdt('fontconfig') }}            # [linux and tk_variant == 'xft']
   host:
     - zlib  # [unix]
-    - freetype  # [tk_variant == 'xft']
-    - fontconfig  # [tk_variant == 'xft']
-    - xorg-libxft  # [tk_variant == 'xft']
+    - xorg-libxft  # [linux and tk_variant == 'xft']
   run:
     - xorg-libxft  # [tk_variant == 'xft']
 test:
