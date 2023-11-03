@@ -40,11 +40,9 @@ requirements:
     - make                               # [linux]
     - {{ cdt('freetype') }}              # [linux and tk_variant == 'xft']
     - {{ cdt('fontconfig') }}            # [linux and tk_variant == 'xft']
+    - {{ cdt('libXft-devel') }}          # [linux and tk_variant == 'xft']
   host:
     - zlib  # [unix]
-    - xorg-libxft  # [linux and tk_variant == 'xft']
-  run:
-    - xorg-libxft  # [tk_variant == 'xft']
 test:
 
   files:
