@@ -41,8 +41,10 @@ requirements:
     - {{ cdt('freetype') }}              # [linux and tk_variant == 'xft']
     - {{ cdt('fontconfig') }}            # [linux and tk_variant == 'xft']
     - {{ cdt('libXft-devel') }}          # [linux and tk_variant == 'xft']
+    - pkg-config                         # [linux and tk_variant == 'xft']
   host:
     - zlib  # [unix]
+
 test:
 
   files:
