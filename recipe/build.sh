@@ -25,6 +25,7 @@ pushd tk${PKG_VERSION}/unix
               --with-tcl="${PREFIX}"/lib  \
               --enable-aqua=yes           \
               ${ARCH_FLAG}
+  cat config.log
   make -j${CPU_COUNT} ${VERBOSE_AT}
   make install
 popd
