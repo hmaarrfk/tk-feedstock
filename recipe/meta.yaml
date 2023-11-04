@@ -38,8 +38,8 @@ requirements:
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau') }}                # [linux]
     - make                               # [linux]
-    - {{ cdt('freetype') }}              # [linux and tk_variant == 'xft']
-    - {{ cdt('fontconfig') }}            # [linux and tk_variant == 'xft']
+    - {{ cdt('freetype-devel') }}        # [linux and tk_variant == 'xft']
+    - {{ cdt('fontconfig-devel') }}      # [linux and tk_variant == 'xft']
     - {{ cdt('libXft-devel') }}          # [linux and tk_variant == 'xft']
     - pkg-config                         # [linux and tk_variant == 'xft']
   host:
