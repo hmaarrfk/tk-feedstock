@@ -1,5 +1,6 @@
 {% set version = "8.6.13" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
+{% set build = 1 %}
 
 package:
   name: tk
@@ -13,8 +14,17 @@ source:
     folder: tk{{ version }}
     sha256: 2e65fa069a23365440a3c56c556b8673b5e32a283800d8d9b257e3f584ce0675
 
+
+{% if tk_variant == 'noxft' and linux %}
+# prioritize noxft variant via build number
+{% set build = build + 100 %}
+{% endif %}
+
 build:
-  number: 0
+  number: {{ build }}
+  string: "{{ tk_variant }}_h{{ PKG_HASH }}_{{ build }}"     # [linux]
+  track_features:
+    - tk_xft   # [tk_variant == 'xft']
   detect_binary_files_with_prefix: true
   run_exports:
     # pin to major.minor because library names have that info in them
@@ -28,6 +38,11 @@ requirements:
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau') }}                # [linux]
     - make                               # [linux]
+    - {{ cdt('freetype-devel') }}        # [linux and tk_variant == 'xft']
+    - {{ cdt('fontconfig-devel') }}      # [linux and tk_variant == 'xft']
+    - {{ cdt('libXrender-devel') }}      # [linux and tk_variant == 'xft']
+    - {{ cdt('libXft-devel') }}          # [linux and tk_variant == 'xft']
+    - pkg-config                         # [linux and tk_variant == 'xft']
   host:
     - zlib  # [unix]
 

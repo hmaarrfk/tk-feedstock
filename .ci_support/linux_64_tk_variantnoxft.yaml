@@ -1,20 +1,20 @@
-BUILD:
-- aarch64-conda_cos7-linux-gnu
 c_compiler:
 - gcc
 c_compiler_version:
 - '12'
-cdt_arch:
-- aarch64
 cdt_name:
-- cos7
+- cos6
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-aarch64
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 target_platform:
-- linux-aarch64
+- linux-64
+tk:
+- '8.6'
+tk_variant:
+- noxft
 zlib:
 - '1.2'

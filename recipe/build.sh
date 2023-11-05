@@ -4,27 +4,30 @@ set -ex
 
 IFS="." read -a VER_ARR <<<"${PKG_VERSION}"
 
-ARCH_FLAG=""
-if [[ ${ARCH} == 64 ]]; then
-    ARCH_FLAG="--enable-64bit"
-fi
 
 pushd tcl${PKG_VERSION}/unix
   # autoreconf -vfi
-  ./configure  --prefix="${PREFIX}"  \
-               --host=${HOST}        \
-               ${ARCH_FLAG}
+  ./configure  --prefix="${PREFIX}"
   make -j${CPU_COUNT} ${VERBOSE_AT}
   make install install-private-headers
 popd
 
+if [[ "$target_platform" == osx-* ]]; then
+  CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-aqua=yes"
+elif [[ "$tk_variant" == xft ]]; then
+  CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-xft"
+  # Remove requires.private for now. Otherwise we need devel packages of
+  # libxrender-devel and the deps in libxrender-devel is broken anyway.
+  sed -i.bak 's/Requires.private: xrender, /Requires.private: /g' $BUILD_PREFIX/$HOST/sysroot/usr/lib/pkgconfig/xft.pc
+  pkg-config --cflags xft fontconfig
+fi
+
 pushd tk${PKG_VERSION}/unix
   # autoreconf -vfi
   ./configure --prefix="${PREFIX}"        \
-              --host=${HOST}              \
               --with-tcl="${PREFIX}"/lib  \
-              --enable-aqua=yes           \
-              ${ARCH_FLAG}
+              ${CONFIGURE_ARGS}
+  cat config.log
   make -j${CPU_COUNT} ${VERBOSE_AT}
   make install
 popd
