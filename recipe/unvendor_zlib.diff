@@ -1,17 +1,26 @@
 diff --git a/win/makefile.vc b/win/makefile.vc
-index 011546a..a5b7287 100644
+index 011546a..3dd1460 100644
 --- a/win/makefile.vc
 +++ b/win/makefile.vc
-@@ -317,7 +317,7 @@ ZLIBOBJS = \
+@@ -316,8 +316,6 @@ ZLIBOBJS = \
+ 	$(TMP_DIR)\trees.obj \
  	$(TMP_DIR)\uncompr.obj \
  	$(TMP_DIR)\zutil.obj
- !else
+-!else
 -ZLIBOBJS = $(OUT_DIR)\zdll.lib
-+ZLIBOBJS = $(INSTALLDIR)\lib\zdll.lib
  !endif
  
  TOMMATHOBJS = \
-@@ -442,7 +442,7 @@ TESTFLAGS = $(TESTFLAGS) -file $(TESTPAT)
+@@ -424,7 +422,7 @@ PRJ_INCLUDES	= -I"$(TOMMATHDIR)"
+ PRJ_DEFINES	= /DTCL_TOMMATH /DMP_PREC=4 /Dinline=__inline /DHAVE_ZLIB=1 /D_CRT_SECURE_NO_DEPRECATE /D_CRT_NONSTDC_NO_DEPRECATE /DMP_FIXED_CUTOFFS
+ 
+ # Additional Link libraries needed beyond those in rules.vc
+-PRJ_LIBS   = netapi32.lib user32.lib userenv.lib ws2_32.lib
++PRJ_LIBS   = netapi32.lib user32.lib userenv.lib ws2_32.lib $(INSTALLDIR)\lib\zdll.lib
+ 
+ #---------------------------------------------------------------------
+ # TclTest flags
+@@ -442,7 +440,7 @@ TESTFLAGS = $(TESTFLAGS) -file $(TESTPAT)
  release:    setup $(TCLSH) $(TCLSTUBLIB) dlls pkgs
  core:	    setup $(TCLLIB) $(TCLSTUBLIB)
  shell:	    setup $(TCLSH)
@@ -20,7 +29,7 @@ index 011546a..a5b7287 100644
  all:	    setup $(TCLSH) $(TCLSTUBLIB) dlls $(CAT32) pkgs
  tcltest:    setup $(TCLTEST) dlls $(CAT32)
  install:    install-binaries install-libraries install-docs install-pkgs
-@@ -515,23 +515,6 @@ $(TCLREGLIB): $(TMP_DIR)\tclWinReg.obj $(TCLSTUBLIB)
+@@ -515,23 +513,6 @@ $(TCLREGLIB): $(TMP_DIR)\tclWinReg.obj $(TCLSTUBLIB)
  	$(_VC_MANIFEST_EMBED_DLL)
  !endif
  
@@ -44,7 +53,7 @@ index 011546a..a5b7287 100644
  pkgs:
  	@for /d %d in ($(PKGSDIR)\*) do \
  	  @if exist "%~fd\win\makefile.vc" ( \
-@@ -896,7 +879,6 @@ install-binaries:
+@@ -896,7 +877,6 @@ install-binaries:
  	@$(CPY) "$(TCLLIB)" "$(BIN_INSTALL_DIR)\"
  !endif
  	@$(CPY) "$(TCLIMPLIB)" "$(LIB_INSTALL_DIR)\"
