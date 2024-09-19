@@ -47,7 +47,7 @@ requirements:
     - {{ cdt('libpng-devel') }}          # [linux and tk_variant == 'xft']
     - pkg-config                         # [linux and tk_variant == 'xft']
   host:
-    - zlib  # [unix]
+    - zlib
 
 test:
 
