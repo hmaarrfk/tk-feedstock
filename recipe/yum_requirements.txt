@@ -3,3 +3,4 @@ libXft
 libfontconfig
 libxcb
 libxau
+libXrender
