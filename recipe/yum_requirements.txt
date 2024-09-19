@@ -4,3 +4,4 @@ libfontconfig
 libxcb
 libxau
 libXrender
+expat
