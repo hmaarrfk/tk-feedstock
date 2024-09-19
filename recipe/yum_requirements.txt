@@ -5,3 +5,4 @@ libxcb
 libxau
 libXrender
 expat
+libuuid
