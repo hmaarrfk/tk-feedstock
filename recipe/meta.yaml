@@ -52,6 +52,9 @@ requirements:
     - zlib
 
 test:
+  requires:
+    # needs to run emulated tests
+    - bzip2  # [build_platform != target_platform]
 
   files:
     - hello.tcl
