@@ -103,8 +103,8 @@ test:
     {% endfor %}
 
     # Check for freetype support
-    - test   $(grep "-lXft" ${PREFIX}/lib/tkConfig.sh)   # [linux and tk_variant == 'xft']
-    - test ! $(grep 'lXft' ${PREFIX}/lib/tkConfig.sh)    # [linux and tk_variant == 'noxft']
+    - test   $(grep 'lXft' ${PREFIX}/lib/tkConfig.sh)   # [linux and tk_variant == 'xft']
+    - test ! $(grep 'lXft' ${PREFIX}/lib/tkConfig.sh)   # [linux and tk_variant == 'noxft']
 
     # Check commands work and run a simple program.
     - tclsh hello.tcl
