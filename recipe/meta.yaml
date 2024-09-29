@@ -39,15 +39,8 @@ requirements:
     - pkg-config                         # [linux and tk_variant == 'xft']
   host:
     - xorg-libx11      # [linux]
-    # - libxcb           # [linux]
-    # - xorg-libxau      # [linux]
-    # - freetype         # [linux and tk_variant == 'xft']
     - fontconfig       # [linux and tk_variant == 'xft']
-    # - xorg-libxrender  # [linux and tk_variant == 'xft']
     - xorg-libxft      # [linux and tk_variant == 'xft']
-    # - libpng           # [linux and tk_variant == 'xft']
-    # - libuuid          # [linux and tk_variant == 'xft']
-    # - expat            # [linux and tk_variant == 'xft']
     - zlib
   run:
     - xorg-libxft      # [linux and tk_variant == 'xft']
