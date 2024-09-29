@@ -16,6 +16,9 @@ if [[ "$target_platform" == osx-* ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-aqua=yes"
 elif [[ "$tk_variant" == xft ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-xft"
+  # it is too easy for the configuration scripts to silently fail
+  # without the necessary dependencies, so we check for them here
+  # and fail early if they are not present
   pkg-config --cflags xft fontconfig
 fi
 
