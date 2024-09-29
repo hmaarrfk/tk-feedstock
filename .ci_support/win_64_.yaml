@@ -1,3 +1,5 @@
+bzip2:
+- '1'
 c_compiler:
 - vs2019
 c_stdlib:
@@ -12,3 +14,5 @@ tk:
 - '8.6'
 tk_variant:
 - noxft
+zlib:
+- '1'
