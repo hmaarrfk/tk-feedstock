@@ -35,27 +35,23 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxau') }}                # [linux]
     - make                               # [linux]
-    - {{ cdt('freetype-devel') }}        # [linux and tk_variant == 'xft']
-    - {{ cdt('fontconfig-devel') }}      # [linux and tk_variant == 'xft']
-    - {{ cdt('libXrender-devel') }}      # [linux and tk_variant == 'xft']
-    - {{ cdt('libXft-devel') }}          # [linux and tk_variant == 'xft']
-    - {{ cdt('libpng-devel') }}          # [linux and tk_variant == 'xft']
-    - {{ cdt('libuuid-devel') }}         # [linux and tk_variant == 'xft']
-    - {{ cdt('expat-devel') }}           # [linux and tk_variant == 'xft']
     - pkg-config                         # [linux and tk_variant == 'xft']
   host:
+    - xorg-libx11      # [linux]
+    - libxcb           # [linux]
+    - xorg-libxau      # [linux]
+    - freetype         # [linux and tk_variant == 'xft']
+    - fontconfig       # [linux and tk_variant == 'xft']
+    - xorg-libxrender  # [linux and tk_variant == 'xft']
+    - xorg-libxft      # [linux and tk_variant == 'xft']
+    - libpng           # [linux and tk_variant == 'xft']
+    - libuuid          # [linux and tk_variant == 'xft']
+    - expat            # [linux and tk_variant == 'xft']
+    - bzip2
     - zlib
 
 test:
-  requires:
-    # needs to run emulated tests
-    - bzip2  # [build_platform != target_platform]
-
   files:
     - hello.tcl
 

@@ -16,10 +16,6 @@ if [[ "$target_platform" == osx-* ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-aqua=yes"
 elif [[ "$tk_variant" == xft ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --enable-xft"
-  # Remove requires.private for now. Otherwise we need devel packages of
-  # libxrender-devel and the deps in libxrender-devel is broken anyway.
-  sed -i.bak 's/Requires.private: xrender, /Requires.private: /g' $BUILD_PREFIX/$HOST/sysroot/usr/lib/pkgconfig/xft.pc
-  pkg-config --cflags xft fontconfig
 fi
 
 pushd tk${PKG_VERSION}/unix
