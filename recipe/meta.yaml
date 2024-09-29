@@ -50,7 +50,7 @@ requirements:
     # - expat            # [linux and tk_variant == 'xft']
     - zlib
   run:
-    # - xorg-libxft      # [linux and tk_variant == 'xft']
+    - xorg-libxft      # [linux and tk_variant == 'xft']
 
 test:
   requires:
